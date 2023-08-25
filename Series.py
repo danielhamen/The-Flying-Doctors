@@ -273,8 +273,11 @@ def get_episode():
         if e.lower() == "q":
            exit("Exited.")
 
-        input(f"\nPress enter to open Season {s}, Episode {e}: {aep[e].name}...")
-        os.system(f"start chrome.exe \"{aep[e].url}\"")
+        l = input(f"\nPress enter to open Season {s}, Episode {e}: {aep[e].name} (or 'l' to display the link)...")
+        if l.lower() == "l":
+           print(aep[e].url)
+        else:
+          os.system(f"start chrome.exe \"{aep[e].url}\"")
 
     except:
        print("Error: Invalid season")
